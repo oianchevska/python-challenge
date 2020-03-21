@@ -18,6 +18,14 @@ with open (py_bank_path) as py_bank_data:
       #print (sum_budget)
       #print (a)
 
+with open("ResultBank.txt", "w") as pyBank_result:
+    pyBank_result.write("Financial Analysis"+ "\n")
+    pyBank_result.write("-"*20+ "\n")
+    pyBank_result.write("Total months: "+ str(len(budget_list))+ "\n")
+    pyBank_result.write("Total: " + str(sum(budget_list))+ "\n")
+
+    print("Financial Analysis")
+    print("-"*20)
     print("Total months: "+ str(len(budget_list)))
     print("Total: " + str(sum(budget_list)))
 
@@ -45,7 +53,10 @@ with open (py_bank_path) as py_bank_data:
         f=budget_list[i+1]-budget_list[i]
         change_list.append(f)
 
-    average_change=(sum(change_list)/len(change_list))
+        average_change=(sum(change_list)/len(change_list))
+
+        #pyBank_result.write("Average change:" + str(average_change) + "\n")
+
     print ("Average change:" + str(average_change))
     print("Greatest Increase in Profits:" + str(max(change_list)))
     print("Greatest Decrease in Profits:" + str(min(change_list)))
